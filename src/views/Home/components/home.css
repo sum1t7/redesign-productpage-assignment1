@@ -1,0 +1,15 @@
+.animated-number {
+    display: inline-block;
+    animation: spinNumber 0.8s ease-out;
+  }
+  
+  @keyframes spinNumber {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }

@@ -21,45 +21,7 @@ const ContactForm = () => {
 
     const [focused, setFocused] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            setIsSubmitting(true)
-            // await apiContactUs(formState)
-            setIsSubmitting(false)
-            toast.push(
-                <Notification
-                    title={'Success'}
-                    type={'success'}
-                >
-                    Successfully submitted
-                </Notification>,
-            )
-            setFormState({
-                fullname: '',
-                email: '',
-                subject: '',
-                message: ''
-            })
-        } catch (err) {
-            setIsSubmitting(false)
-            toast.push(
-                <Notification
-                    title={err?.response?.data.message}
-                    type={'danger'}
-                >
-                    {err?.response?.data.message}
-                </Notification>,
-            )
-        }
-    };
-
-    const handleChange = (e) => {
-        setFormState({
-            ...formState,
-            [e.target.name]: e.target.value
-        });
-    };
+  
 
     return (
         <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
@@ -117,7 +79,7 @@ const ContactForm = () => {
 
                     {/* Right Column - Contact Form */}
                     <div className="bg-gray-50 rounded-2xl shadow-lg p-4 sm:p-8">
-                        <form onSubmit={handleSubmit} className="space-y-3">
+                        <form   className="space-y-3">
                             <div className="relative">
                                 <div className={`absolute left-3 top-1/2 -translate-y-1/2 transition-all duration-300 ${focused === 'fullName' || formState.fullname ? 'text-primary' : 'text-gray-400'
                                     }`}>
@@ -128,8 +90,7 @@ const ContactForm = () => {
                                     name="fullname"
                                     placeholder="Full Name"
                                     value={formState.fullname}
-                                    onChange={handleChange}
-                                    onFocus={() => setFocused('fullname')}
+                                     onFocus={() => setFocused('fullname')}
                                     onBlur={() => setFocused('')}
                                     className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
                                     required
@@ -146,8 +107,7 @@ const ContactForm = () => {
                                     name="email"
                                     placeholder="Email"
                                     value={formState.email}
-                                    onChange={handleChange}
-                                    onFocus={() => setFocused('email')}
+                                     onFocus={() => setFocused('email')}
                                     onBlur={() => setFocused('')}
                                     className="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
                                     required
@@ -177,8 +137,7 @@ const ContactForm = () => {
                                     name="message"
                                     placeholder="Message"
                                     value={formState.message}
-                                    onChange={handleChange}
-                                    onFocus={() => setFocused('message')}
+                                     onFocus={() => setFocused('message')}
                                     onBlur={() => setFocused('')}
                                     rows={4}
                                     className="w-full p-4 bg-white border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all"
@@ -189,11 +148,12 @@ const ContactForm = () => {
                             <Button
                                 loading={isSubmitting}
                                 type="submit"
-                                className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold hover:bg-transparent transition-colors duration-300 flex items-center justify-center space-x-2 shadow-md hover:shadow-lg"
-                            >
+                                
+                             
+                                className='rounded-[5px] w-full max-w-[200px]'
+                            >                             
                                 <span>Submit</span>
-                                <BiSend className="w-5 h-5" />
-                            </Button>
+                             </Button>
                         </form>
                     </div>
                 </div>

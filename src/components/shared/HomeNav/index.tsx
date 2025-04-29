@@ -91,11 +91,12 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({
 	}, [pathname]);
 
 	return (
-		<nav className={`w-full`}>
-			<div className="max-w-[1538px] mx-auto px-4 w-full">
+		<nav className={`w-full fixed z-10 border-b-2`}>
+			<div className="max-w-[1538px] mx-auto px-4 py-2 bg-Blue1 w-full">
 				<div className="flex justify-between h-16 items-center">
-					{/* Logo */}
-					<div className="flex-shrink-0 flex items-center">
+					
+					<div className='flex items-center  '>
+ 					<div className="flex-shrink-0 lg:pl-20 flex items-center">
 						<img
 							src={`/img/logo/logo-dark-full.png`}
 							alt="MakeWell_logo"
@@ -104,20 +105,62 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({
 						/>
 					</div>
 
-					<div className="hidden lg:flex space-x-8">
+					<div className="hidden lg:flex  ">
 						{menuItems.map((item) => (
 							<li
 								key={item.text}
-								className={`text-[#ffffffc9] list-none transition-all duration-300 hover:text-primary cursor-pointer`}
+								className={`text-[#ffffff] text-base pl-10 list-none transition-all duration-300 hover:text-Blue0 cursor-pointer`}
 								onClick={() => (scrollToSection && item.ref) ? scrollToSection(item.ref) : navigate('/?scrollTo=' + item.text)}
 							>
 								{item.text}
 							</li>
 						))}
 					</div>
+					</div>
 
-					<div
-						className={`lg:hidden fixed h-full w-[90%] xs:w-[50%] bg-white/95 backdrop-blur-sm top-0 z-[9999] shadow-2xl transition-all duration-300 ease-in-out ${menuStatus ? 'right-0' : 'right-[-130%]'} transition-all duration-300`}
+					<div className="hidden lg:flex items-center space-x-8 pr-20">
+						{/* Navigation Items */}
+						{
+							user?.role?.[0] === 'admin' ? (
+								<div className='mt-3'>
+									<Button variant='solid' className='rounded-[5px]' onClick={() => navigate('/stores')}>Go to Admin Dashboard</Button>
+								</div>
+							) : (
+								<div className="flex items-center space-x-4">
+									<Button
+										onClick={() =>
+											navigate('/store')
+										}
+										block
+ 										className="rounded-[5px]"
+									>
+										Login
+									</Button>
+
+									<HcfSignupPopup
+										popupButtonStatus
+										buttonChildren={
+											<Button
+												block
+ 												variant="solid"
+												className="rounded-[5px]"
+											>
+												Get Started
+											</Button>
+										}
+										hcfLogin={true}
+									/>
+								</div>
+							)
+						}
+
+						{/* Buttons */}
+
+					</div>
+					 
+
+
+					<div className={`lg:hidden fixed h-full w-[90%] xs:w-[50%] bg-white/95 backdrop-blur-sm top-0 z-[9999] shadow-2xl transition-all duration-300 ease-in-out ${menuStatus ? 'right-0' : 'right-[-130%]'} transition-all duration-300`}
 					>
 						<div className="absolute right-4 top-4 transition-transform duration-200 hover:rotate-90">
 							<CgClose
@@ -195,46 +238,7 @@ const HomeNavbar: React.FC<HomeNavbarProps> = ({
 						/>
 					</div>
 
-					{/* Desktop Menu */}
-					<div className="hidden lg:flex items-center space-x-8">
-						{/* Navigation Items */}
-						{
-							user?.role?.[0] === 'admin' ? (
-								<div className='mt-3'>
-									<Button variant='solid' className='rounded-[5px]' onClick={() => navigate('/stores')}>Go to Admin Dashboard</Button>
-								</div>
-							) : (
-								<div className="flex items-center space-x-4">
-									<Button
-										onClick={() =>
-											navigate('/store')
-										}
-										block
-										className="rounded-[5px]"
-									>
-										Login
-									</Button>
-
-									<HcfSignupPopup
-										popupButtonStatus
-										buttonChildren={
-											<Button
-												block
-												variant="solid"
-												className="rounded-[5px]"
-											>
-												Get Started
-											</Button>
-										}
-										hcfLogin={true}
-									/>
-								</div>
-							)
-						}
-
-						{/* Buttons */}
-
-					</div>
+ 					 
 				</div >
 			</div >
 		</nav >

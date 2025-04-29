@@ -1,9 +1,9 @@
-import ArrowSvg from "@/assets/svg/ArrowSvg";
-import GlobeSvg from "@/assets/svg/GlobeSvg";
-import HandSvg from "@/assets/svg/handSvg";
-import HelplineSvg from "@/assets/svg/HelplineSvg";
-import RevenueSvg from "@/assets/svg/RevenueSvg";
-import SupportSvg from "@/assets/svg/SupportSvg";
+import ArrowSvg from "@/assets/svg/NoMedia";
+import GlobeSvg from "@/assets/svg/NoMedia";
+import HandSvg from "@/assets/svg/NoMedia";
+import HelplineSvg from "@/assets/svg/NoMedia";
+import RevenueSvg from "@/assets/svg/NoMedia";
+import SupportSvg from "@/assets/svg/NoMedia";
 import { ReactNode } from "react";
 
 interface HeroData {

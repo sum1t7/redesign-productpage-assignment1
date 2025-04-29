@@ -4,6 +4,7 @@ import AuthLayout from './AuthLayout'
 import type { CommonProps } from '@/@types/common'
 
 const PreLoginLayout = ({ children }: CommonProps) => {
+    
     const location = useLocation()
 
     const { pathname } = location

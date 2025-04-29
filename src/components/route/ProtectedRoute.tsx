@@ -11,16 +11,9 @@ const ProtectedRoute = () => {
     const { pathname } = useLocation()
 
     const getPathName =
-        pathname === '/' ? '' : `?${REDIRECT_URL_KEY}=${location.pathname}`
+        pathname === '/'  
 
-    if (!authenticated) {
-        return (
-            <Navigate
-                replace
-                to={`${unAuthenticatedEntryPath}${getPathName}`}
-            />
-        )
-    }
+    
 
     return <Outlet />
 }

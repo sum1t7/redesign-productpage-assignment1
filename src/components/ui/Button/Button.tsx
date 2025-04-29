@@ -107,7 +107,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
                 break
             default:
                 sizeClass = classNames(
-                    CONTROL_SIZES.md.h,
+                    CONTROL_SIZES.sm.h,
                     radiusShape[shape],
                     icon && !children
                         ? `${CONTROL_SIZES.md.w} ${sizeIconClass} text-xl`
@@ -122,9 +122,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
     const solidColor = () => {
         const btn = {
-            bgColor: active ? `bg-primary-deep` : `bg-primary`,
+            bgColor: active ? `bg-Blue1` : `bg-Blue0`,
             textColor: 'text-neutral',
-            hoverColor: active ? '' : `hover:bg-primary-mild`,
+            hoverColor: active ? '' : `hover:border-b-8 transition-all duration-100 ease-in-out`,
             activeColor: ``,
         }
         return getBtnColor(btn)
@@ -136,8 +136,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
                 ? ``
                 : `dark:primary-mild dark:bg-opacity-20`,
             textColor: ``,
-            hoverColor: active ? '' : `hover:text-primary-mild`,
-            activeColor: `dark:active:primary-mild dark:active:bg-opacity-40`,
+            hoverColor: active ? '' : `hover:text-Blue0`,
+            activeColor: `dark:active:primary-mild dark:active:bg-opacity-40 transition-all duration-100 ease-in-out`,
         }
         return getBtnColor(btn)
     }
@@ -145,12 +145,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const defaultColor = () => {
         const btn = {
             bgColor: active
-                ? `bg-gray-100 border border-gray-300 dark:bg-gray-500 dark:border-gray-500`
-                : `bg-white border border-gray-300 dark:bg-gray-700 dark:border-gray-700`,
+            ? `bg-gray-100 border border-gray-300 dark:bg-gray-500 dark:border-gray-500`
+            : `bg-white border border-gray-300 dark:bg-gray-700 dark:border-gray-700`,
             textColor: `text-gray-600 dark:text-gray-100`,
             hoverColor: active
-                ? ''
-                : `ring-primary dark:ring-white hover:border-primary dark:hover:border-white hover:ring-1 hover:text-primary dark:hover:text-white dark:hover:bg-transparent`,
+            ? ''
+            : `hover:border-b-8  hover:border-Blue0 transition-all duration-100 ease-in`,
             activeColor: ``,
         }
         return getBtnColor(btn)

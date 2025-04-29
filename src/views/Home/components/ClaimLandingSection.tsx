@@ -1,5 +1,3 @@
-import PatientSignUpPopup from '@/views/auth/PatientSignUp/Popup';
-import React from 'react';
 import { BiBot, BiGlobe, BiMessageSquare, BiTrendingUp } from 'react-icons/bi';
 import { CgLock } from 'react-icons/cg';
 import { FaUsers } from 'react-icons/fa';
@@ -58,9 +56,7 @@ const ClaimLandingSection = () => {
                             placeholder="GoGetWell.ai/your_name"
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                         />
-                        <PatientSignUpPopup hcfLogin popupButtonStatus buttonChildren={<button className="w-full bg-primary text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-300">
-                            Join the Waiting List
-                        </button>} />
+                       
                     </div>
                 </div>
             </div>

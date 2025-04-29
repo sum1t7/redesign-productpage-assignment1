@@ -6,8 +6,7 @@ import type { Routes } from '@/@types/routes'
 export const publicRoutes: Routes = [...authRoute]
 
 export const protectedRoutes: Routes = [
-    /** Example purpose only, please remove */
-    {
+     {
         key: 'singleMenuItem',
         path: '/single-menu-view',
         component: lazy(() => import('@/views/demo/SingleMenuView')),
@@ -49,7 +48,7 @@ export const protectedRoutes: Routes = [
     },
     {
         key: 'homePage',
-        path: `/hello`,
+        path: `/`,
         component: lazy(() => import('@/views/Home')),
         authority: []
     },

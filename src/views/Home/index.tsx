@@ -1,21 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import HeroSection from './components/HeroSection';
 import HomeFAQs from './components/HomeFAQ';
 import ContactForm from './components/ContactForm';
-import MainFooter from './components/MainFooter';
 import InfoSection from './components/InfoSection';
 import FeaturesGrid from './components/FeaturesGrid';
 
-const Home: React.FC = () => {
+const Home  = () => {
 	const contactRef = useRef(null);
 	const aboutRef = useRef(null);
 	const FqRef = useRef(null);
-	const scrollToSection = (ref) => {
-		ref.current.scrollIntoView({ behavior: 'smooth' });
+	interface SectionRef {
+		current: HTMLElement | null;
+	}
+
+	const scrollToSection = (ref: SectionRef): void => {
+		ref.current?.scrollIntoView({ behavior: 'smooth' });
 	};
 
 	useEffect(() => {
-		let lastScrollTop = 0; // Initialize lastScrollTop variable
+		let lastScrollTop = 0;  
 
 		const handleScroll = () => {
 			const hcf = document.querySelector(".hcf-profile");
@@ -36,14 +39,14 @@ const Home: React.FC = () => {
 		};
 
 
-		// Add scroll event listener
-		window.addEventListener("scroll", handleScroll);
+ 		window.addEventListener("scroll", handleScroll);
 
-		// Cleanup the event listener on unmount
-		return () => {
+ 		return () => {
 			window.removeEventListener("scroll", handleScroll);
 		};
 	}, []);
+
+	
 	return (
 		<>
 			<div>
